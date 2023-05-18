@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body_block %}
+   <h3>Home</h3>
+   {% if search %}
+     <!-- {% for search in result %}
+      <p>Hello</p>
+     {% endfor %} -->
+     <p>Hello</p>
+   {% endif %}
+   {% for video in object_list %}
+   <div class="container">
+
+
+   <div class="container my-5">
+
+        <div class="col-md-6 col-sm-12 col-lg-3">
+
+
+       <a href="{% url 'App_Stream:comments' video_id=video.id %}"><iframe width="560" height="315" src="{{ video.link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+        clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       <br>Comments</a>
+
+      </div>
+
+   </div>
+   </div>
+
+   {% endfor %}
+
+{% endblock %}
